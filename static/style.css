@@ -1,0 +1,20 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin:0px auto;
+}
+
+@media only screen and (min-width: 768px) {
+  body {width:800px;margin:50px auto;}
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+#flash {margin:1em 0px;}
+
+.door {font-size: 45px;}
+.round {border-radius: 24px;}
+.footnote {color:#ccc;}
+.checkbox label {padding-right:10px;padding-bottom:10px}

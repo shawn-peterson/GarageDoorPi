@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<meta http-equiv="refresh" content="30">
+{% endblock head %}
+{% block content %}
+<div class="page-header">
+  <h1>Garage Door Monitor and Controller</h1>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1>Door 1</h1>
+          <p class="text-primary door text-center">{{data['s'][0]}}</p>
+          <p><a class="btn btn-sm btn-primary" href="#" id="door1">Open/Close</a></p>
+        </div>
+        <div class="col-xs-6">
+            <h1>Door 2</h1>
+            <p class="text-primary door text-center">{{data['s'][1]}}</p>
+            <p><a class="btn btn-sm btn-primary" href="#" id="door2">Open/Close</a></p>
+          </div>
+      </div>
+  </div>
+</div>
+<p class="footnote text-center">Updated {{ data['ts'] }}</p>
+<p class="footnote text-center"><a href="/logout" >Logout {{ data['user'] }}</a></p>
+<script>
+$(document).ready(function() {
+    $("#door1").click(function() {
+      jQuery.get("/trigger?door=1");
+    });
+
+    $("#door2").click(function() {
+      jQuery.get("/trigger?door=2");
+    });
+});
+</script>
+{% endblock content %}
